@@ -4,6 +4,7 @@ import 'package:sobaca_mobile/models/thread.dart';
 import 'package:sobaca_mobile/screens/threadDetail.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
 class ForumApp extends StatelessWidget {
   const ForumApp({super.key});
@@ -12,7 +13,10 @@ class ForumApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Discussion Forum",
-      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.green),
+      theme: ThemeData(
+      useMaterial3: true,
+      colorSchemeSeed: Colors.green
+      ),
       home: const ForumPage(),
     );
   }
@@ -29,7 +33,7 @@ class _ForumPageState extends State<ForumPage> {
   Future<List<Thread>> fetchThread() async {
     final request = context.watch<CookieRequest>();
 
-    var response = await request.get('http://localhost:8000/get-threads');
+    var response = await request.get('http://localhost:8000/discussion/show-thread-json');
 
     var data = response;
 
@@ -48,6 +52,7 @@ class _ForumPageState extends State<ForumPage> {
       appBar: AppBar(
         title: const Text("Book Discussion"),
       ),
+      drawer: LeftDrawer(),
       body: FutureBuilder(
           future: fetchThread(),
           builder: (context, AsyncSnapshot snapshot) {

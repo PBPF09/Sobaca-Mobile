@@ -3,6 +3,7 @@ import 'package:sobaca_mobile/models/thread.dart';
 import 'package:sobaca_mobile/models/reply.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
 class ThreadDetailPage extends StatelessWidget {
   final Thread thread;
@@ -15,6 +16,7 @@ class ThreadDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(thread.fields.title),
       ),
+      drawer: LeftDrawer(),
       body: FutureBuilder(
         future: fetchReply(context, thread), // Sertakan parameter context di sini
         builder: (context, AsyncSnapshot<List<Reply>> snapshot) {

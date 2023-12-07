@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final thread = threadFromJson(jsonString);
-
 import 'dart:convert';
 
 List<Thread> threadFromJson(String str) => List<Thread>.from(json.decode(str).map((x) => Thread.fromJson(x)));
