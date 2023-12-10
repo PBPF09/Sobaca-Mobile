@@ -1,10 +1,10 @@
 // To parse this JSON data, do
 //
-//     final product = productFromJson(jsonString);
+//     final objective = objectiveFromJson(jsonString);
 
 import 'dart:convert';
 
-List<Objective> productFromJson(String str) => List<Objective>.from(json.decode(str).map((x) => Objective.fromJson(x)));
+List<Objective> objectiveFromJson(String str) => List<Objective>.from(json.decode(str).map((x) => Objective.fromJson(x)));
 
 String objectiveToJson(List<Objective> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 

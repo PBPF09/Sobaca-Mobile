@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sobaca_mobile/screens/left_drawer.dart';
 
 
 class MyHomePage extends StatelessWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const LeftDrawer(),
       appBar: AppBar(
         title: const Text(
           'Shopping List',
