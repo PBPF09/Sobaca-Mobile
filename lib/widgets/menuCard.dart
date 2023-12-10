@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
-import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 
 class MenuItem {
