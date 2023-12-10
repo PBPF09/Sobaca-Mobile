@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 
@@ -33,9 +34,9 @@ class MenuCard extends StatelessWidget {
           } else if (item.name == "Discussions") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ForumPage()));
-          } else if (item.name == "Challenges") {
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) => const ChallengePage()));
+          } else if (item.name == "Literacy Objectives") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ObjectivesPage()));
           } else if (item.name == "Search") {
             // Navigator.push(context, 
             // MaterialPageRoute(builder: ((context) => const SearchPage())));

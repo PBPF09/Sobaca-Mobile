@@ -24,6 +24,12 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.thread.title),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_outlined),
+          onPressed: () => Navigator.pop(context),
+        ),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       body: FutureBuilder(
         future: fetchReply(context, widget.thread),
@@ -111,7 +117,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                       SizedBox(height: 16),
                       Divider(),
                       SizedBox(height: 16),
-                      // Displaying replies
                       for (var reply in replies)
                         ListTile(
                           leading: CircleAvatar(
@@ -121,8 +126,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                           subtitle: Text(
                               'Created by ${reply.user} - ${formatDate(reply.dateCreate)}'),
                         ),
-                      SizedBox(height: 16),
-                      Divider(),
                     ],
                   ),
                 ),
@@ -145,7 +148,8 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                         onPressed: () async {
                           if (_replyController.text.isNotEmpty) {
                             final request =
-                                context.read<CookieRequest>(); // menggunakan context.read
+                                context.read<CookieRequest>();
+
                             final response = await request.postJson(
                               'http://localhost:8000/discussion/add-reply-mobile/',
                               jsonEncode(<String, dynamic>{
@@ -165,7 +169,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 _replyController.clear();
                               });
 
-                              // Fetch and update replies
                               List<Reply> updatedReplies =
                                   await fetchReply(context, widget.thread);
                               setState(() {
@@ -179,8 +182,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 ),
                               );
                             }
-
-                            // Clear the text field
                             setState(() {
                               _replyController.clear();
                             });

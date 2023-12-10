@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
+import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 
@@ -96,16 +97,16 @@ class LeftDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.emoji_events_outlined),
-            title: Text('Book Challenges'),
+            title: Text('Literacy Objectives'),
             onTap: () {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const ChallengePage(),
-              //         settings: RouteSettings(name: 'ChallengePage')),
-              //     (route) =>
-              //         route.isFirst || route.settings.name == 'HomePage'
-              // );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ObjectivesPage(),
+                      settings: RouteSettings(name: 'ObjectivePage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(

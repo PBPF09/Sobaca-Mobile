@@ -7,7 +7,7 @@ class MyHomePage extends StatelessWidget {
   final List<MenuItem> items = [
     MenuItem("Book Catalogs", Icons.library_books_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Discussions", Icons.question_answer_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
-    MenuItem("Challenges", Icons.emoji_events_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Literacy Objectives", Icons.emoji_events_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Search", Icons.manage_search_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Logout", Icons.logout_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
   ];
