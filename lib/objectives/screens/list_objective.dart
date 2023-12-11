@@ -26,7 +26,7 @@ class _ObjectivesPageState extends State<ObjectivesPage> {
 
   Future<List<Objective>>? fetchObjectives(request, filter) async {
     var response = await request.postJson(
-        "http://127.0.0.1:8000/challenges/get_objectives_mobile/",
+        "http://127.0.0.1:8000//challenges/get_objectives_mobile/",
         jsonEncode({
           "status": filter,
         }));
