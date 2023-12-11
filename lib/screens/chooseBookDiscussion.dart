@@ -36,12 +36,14 @@ class _ChooseBookDiscussionPageState extends State<ChooseBookDiscussionPage> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text("Choose Book Discussion"),
+          child: Text("Sobaca Forum"),
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_outlined),
           onPressed: () => Navigator.pop(context),
         ),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       drawer: LeftDrawer(),
       body: FutureBuilder<List<Book>>(

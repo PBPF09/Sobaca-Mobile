@@ -23,7 +23,7 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.thread.title),
+        title: Text("Sobaca Forum"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new_outlined),
           onPressed: () => Navigator.pop(context),
@@ -109,6 +109,8 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
+                              overflow: TextOverflow.ellipsis,
+                              
                             ),
                             SizedBox(height: 8),
                           ],
@@ -122,9 +124,20 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                           leading: CircleAvatar(
                             child: Icon(Icons.person),
                           ),
-                          title: Text(reply.content),
+                          title: Text(
+                              reply.content,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          ),
                           subtitle: Text(
-                              'Created by ${reply.user} - ${formatDate(reply.dateCreate)}'),
+                              'Created by ${reply.user} - ${formatDate(reply.dateCreate)}',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          ),
                         ),
                     ],
                   ),

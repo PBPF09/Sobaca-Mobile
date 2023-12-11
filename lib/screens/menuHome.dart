@@ -16,11 +16,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child : Text(
-          'Sobaca Menu\'s',
-          )
-        ),
+        title: Text('Sobaca Menu\'s'),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       drawer: LeftDrawer(),
       body: SingleChildScrollView(
@@ -34,7 +32,7 @@ class MyHomePage extends StatelessWidget {
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'Sobaca Menu', // Text yang menandakan toko
+                  'Sobaca Menu\'s',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,

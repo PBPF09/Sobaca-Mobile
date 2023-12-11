@@ -27,13 +27,15 @@ class _ThreadFormPageState extends State<ThreadFormPage> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Start Discussion',
+            'Sobaca Forum',
           ),
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_outlined),
           onPressed: () => Navigator.pop(context),
         ),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       body: Form(
         key: _formKey,
@@ -67,6 +69,8 @@ class _ThreadFormPageState extends State<ThreadFormPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
+                  minLines: 1,
+                  maxLines: 5,
                   decoration: InputDecoration(
                     hintText: "Discussion Contents",
                     labelText: "Discussion Contents",
