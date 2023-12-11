@@ -1,26 +1,8 @@
-import 'package:sobaca_mobile/screens/menu.dart';
+import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-
-void main() {
-    runApp(const LoginApp());
-}
-
-class LoginApp extends StatelessWidget {
-const LoginApp({super.key});
-
-@override
-Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Login',
-        theme: ThemeData(
-            primarySwatch: Colors.blue,
-    ),
-    home: const LoginPage(),
-    );
-    }
-}
+import 'package:sobaca_mobile/screens/search_page.dart';
 
 class LoginPage extends StatefulWidget {
     const LoginPage({super.key});
@@ -61,15 +43,17 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 24.0),
                         ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+                          },
+                          child: Text("Guest")
+                        ),
+                        ElevatedButton(
                             onPressed: () async {
                                 String username = _usernameController.text;
                                 String password = _passwordController.text;
 
-                                // Cek kredensial
-                                // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-                                // Untuk menyambungkan Android emulator dengan Django pada localhost,
-                                // gunakan URL http://10.0.2.2/
-                                final response = await request.login("http://localhost:8000/auth/login/", {
+                                final response = await request.login("http://localhost:8000/search_book/login/", {
                                 'username': username,
                                 'password': password,
                                 });
@@ -79,7 +63,9 @@ class _LoginPageState extends State<LoginPage> {
                                     String uname = response['username'];
                                     Navigator.pushReplacement(
                                         context,
-                                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                                        MaterialPageRoute(
+                                          builder: (context) => MyHomePage()
+                                        )
                                     );
                                     ScaffoldMessenger.of(context)
                                         ..hideCurrentSnackBar()
