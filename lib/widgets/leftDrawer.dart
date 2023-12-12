@@ -3,6 +3,7 @@ import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
+import 'package:sobaca_mobile/screens/search_page.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -85,14 +86,14 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.manage_search_outlined),
             title: Text('Search Books'),
             onTap: () {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const SearchPage(),
-              //         settings: RouteSettings(name: 'SearchPage')),
-              //     (route) =>
-              //         route.isFirst || route.settings.name == 'HomePage'
-              // );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchPage(),
+                      settings: RouteSettings(name: 'SearchPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(

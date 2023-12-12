@@ -105,8 +105,8 @@ class _ThreadFormPageState extends State<ThreadFormPage> {
                         final response = await request.postJson(
                             'http://localhost:8000/discussion/add-thread-mobile/',
                             jsonEncode(<String, dynamic>{
-                              'title': _title,
-                              'content': _content,
+                              'title': _title.trim(),
+                              'content': _content.trim(),
                               'bookId': widget.book.pk.toString(),
                             }));
                         if (response['status'] == 'success') {

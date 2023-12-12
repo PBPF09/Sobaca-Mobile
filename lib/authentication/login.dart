@@ -2,6 +2,7 @@ import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/screens/search_page.dart';
 
 class LoginPage extends StatefulWidget {
     const LoginPage({super.key});
@@ -19,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
         final request = context.watch<CookieRequest>();
         return Scaffold(
             appBar: AppBar(
-                title: const Text('Login'),
+                title: const Text(''),
                 backgroundColor: Color(0xff8dc26f),
                 foregroundColor: Colors.white,
             ),
@@ -44,11 +45,17 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 24.0),
                         ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+                          },
+                          child: Text("Guest")
+                        ),
+                        ElevatedButton(
                             onPressed: () async {
                                 String username = _usernameController.text;
                                 String password = _passwordController.text;
 
-                                final response = await request.login("http://localhost:8000/auth/login/", {
+                                final response = await request.login("http://localhost:8000/search_book/login/", {
                                 'username': username,
                                 'password': password,
                                 });

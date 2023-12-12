@@ -166,7 +166,7 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                             final response = await request.postJson(
                               'http://localhost:8000/discussion/add-reply-mobile/',
                               jsonEncode(<String, dynamic>{
-                                'content': _replyController.text,
+                                'content': _replyController.text.trim(),
                                 'threadId': widget.thread.id.toString(),
                               }),
                             );
