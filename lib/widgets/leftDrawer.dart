@@ -2,9 +2,10 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
+import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
-
+import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -15,21 +16,20 @@ class LeftDrawer extends StatelessWidget {
         children: [
           DrawerHeader(
             decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.green, Colors.greenAccent],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
+              gradient: LinearGradient(
+                colors: [Colors.green, Colors.greenAccent],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
               ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: Image.asset(
+                    child: Image.asset(
                   'assets/images/sobaca_logo.png',
                   fit: BoxFit.contain,
-                  )
-                ),
+                )),
                 Text(
                   'Sobaca',
                   style: TextStyle(
@@ -48,6 +48,14 @@ class LeftDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.account_circle_outlined),
+            title: Text('Profile'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()));
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.home_outlined),
             title: Text('Home'),
             onTap: () {
@@ -61,6 +69,14 @@ class LeftDrawer extends StatelessWidget {
             onTap: () {
               // Navigator.push(context,
               //     MaterialPageRoute(builder: (context) => CatalogPage()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.star_outlined),
+            title: Text('Favorite Books'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FavoriteBooksPage()));
             },
           ),
           ListTile(
@@ -91,8 +107,8 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.logout_outlined),
             title: Text('Logout'),
             onTap: () {
-              Navigator.pushReplacement(context, 
-                MaterialPageRoute(builder: ((context) => const LoginPage())));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: ((context) => const LoginPage())));
             },
           ),
         ],

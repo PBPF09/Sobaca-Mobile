@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
@@ -38,8 +39,11 @@ class MenuCard extends StatelessWidget {
             // Navigator.push(context,
             //     MaterialPageRoute(builder: (context) => const ChallengePage()));
           } else if (item.name == "Search") {
-            // Navigator.push(context, 
+            // Navigator.push(context,
             // MaterialPageRoute(builder: ((context) => const SearchPage())));
+          } else if (item.name == "Favorite") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: ((context) => FavoriteBooksPage())));
           } else if (item.name == "Logout") {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const LoginPage()));
