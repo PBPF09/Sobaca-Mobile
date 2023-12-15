@@ -42,8 +42,10 @@ class MenuCard extends StatelessWidget {
             // Navigator.push(context,
             // MaterialPageRoute(builder: ((context) => const SearchPage())));
           } else if (item.name == "Favorite") {
-            Navigator.push(context,
-                MaterialPageRoute(builder: ((context) => FavoriteBooksPage())));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: ((context) => const FavoriteBooksPage())));
           } else if (item.name == "Logout") {
             Navigator.pushReplacement(context,
                 MaterialPageRoute(builder: (context) => const LoginPage()));
