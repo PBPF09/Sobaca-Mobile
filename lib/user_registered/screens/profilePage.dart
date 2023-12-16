@@ -54,15 +54,12 @@ class _ProfilePageState extends State<ProfilePage> {
           if (snapshot.data == null) {
             return const Center(child: CircularProgressIndicator());
           } else {
-            if (!snapshot.hasData) {
-              return const Column(
-                children: [
-                  Text(
-                    "Tidak ada",
-                    style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-                  ),
-                  SizedBox(height: 8),
-                ],
+            if (!snapshot.hasData || snapshot.data.isEmpty) {
+              return const Center(
+                child: Text(
+                  "Belum ada profile.",
+                  style: TextStyle(color: Color(0xff00a18c), fontSize: 20),
+                ),
               );
             } else {
               final profile = snapshot.data![0].fields;
