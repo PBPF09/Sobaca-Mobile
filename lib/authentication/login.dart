@@ -2,6 +2,7 @@ import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
@@ -40,7 +41,9 @@ class _LoginPageState extends State<LoginPage> {
         final request = context.watch<CookieRequest>();
         return Scaffold(
             appBar: AppBar(
-                title: const Text('Login'),
+                title: const Text(''),
+                backgroundColor: Color(0xff8dc26f),
+                foregroundColor: Colors.white,
             ),
             body: Container(
                 padding: const EdgeInsets.all(16.0),
@@ -63,15 +66,17 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 24.0),
                         ElevatedButton(
+                          onPressed: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => const SearchPage()));
+                          },
+                          child: Text("Guest")
+                        ),
+                        ElevatedButton(
                             onPressed: () async {
                                 String username = _usernameController.text;
                                 String password = _passwordController.text;
 
-                                // Cek kredensial
-                                // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-                                // Untuk menyambungkan Android emulator dengan Django pada localhost,
-                                // gunakan URL http://10.0.2.2/
-                                final response = await request.login("http://localhost:8000/auth/login/", {
+                                final response = await request.login("http://localhost:8000/search_book/login/", {
                                 'username': username,
                                 'password': password,
                                 });
@@ -81,7 +86,9 @@ class _LoginPageState extends State<LoginPage> {
                                     String uname = response['username'];
                                     Navigator.pushReplacement(
                                         context,
-                                        MaterialPageRoute(builder: (context) => MyHomePage()),
+                                        MaterialPageRoute(
+                                          builder: (context) => MyHomePage()
+                                        )
                                     );
                                     ScaffoldMessenger.of(context)
                                         ..hideCurrentSnackBar()

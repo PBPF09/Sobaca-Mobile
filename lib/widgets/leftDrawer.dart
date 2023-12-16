@@ -1,10 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
-import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
+import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
+import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -17,7 +17,7 @@ class LeftDrawer extends StatelessWidget {
           DrawerHeader(
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Colors.green, Colors.greenAccent],
+                colors: [Color(0xff76b852), Color(0xff8dc26f)],
                 begin: Alignment.centerRight,
                 end: Alignment.centerLeft,
               ),
@@ -51,64 +51,101 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.account_circle_outlined),
             title: Text('Profile'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                      settings: RouteSettings(name: 'ProfilePage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(
             leading: Icon(Icons.home_outlined),
             title: Text('Home'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                  (route) => false);
             },
           ),
           ListTile(
             leading: Icon(Icons.library_books_outlined),
             title: Text('Book Catalogs'),
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => CatalogPage()));
+              // Navigator.pushAndRemoveUntil(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => const CatalogPage(),
+              //         settings: RouteSettings(name: 'CatalogPage')),
+              //     (route) =>
+              //         route.isFirst || route.settings.name == 'HomePage'
+              // );
             },
           ),
           ListTile(
             leading: Icon(Icons.star_outlined),
             title: Text('Favorite Books'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FavoriteBooksPage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FavoriteBooksPage(),
+                      settings: RouteSettings(name: 'FavoriteBooksPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(
             leading: Icon(Icons.question_answer_outlined),
             title: Text('Discussion'),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const ForumPage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ForumPage(),
+                      settings: RouteSettings(name: 'ForumPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(
             leading: Icon(Icons.manage_search_outlined),
             title: Text('Search Books'),
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const SearchPage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SearchPage(),
+                      settings: RouteSettings(name: 'SearchPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.emoji_events_outlined),
-            title: Text('Book Challenges'),
+            title: Text('Literacy Objectives'),
             onTap: () {
-              // Navigator.push(context,
-              //     MaterialPageRoute(builder: (context) => const ChallengePage()));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ObjectivesPage(),
+                      settings: RouteSettings(name: 'ObjectivePage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.logout_outlined),
             title: Text('Logout'),
             onTap: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: ((context) => const LoginPage())));
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: ((context) => const LoginPage())),
+                  (route) => false);
             },
           ),
         ],
