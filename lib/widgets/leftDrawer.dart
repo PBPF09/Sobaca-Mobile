@@ -4,6 +4,8 @@ import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
+import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -46,6 +48,19 @@ class LeftDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
+            leading: Icon(Icons.account_circle_outlined),
+            title: Text('Profile'),
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ProfilePage(),
+                      settings: RouteSettings(name: 'ProfilePage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
+            },
+          ),
+          ListTile(
             leading: Icon(Icons.home_outlined),
             title: Text('Home'),
             onTap: () {
@@ -67,6 +82,19 @@ class LeftDrawer extends StatelessWidget {
               //     (route) =>
               //         route.isFirst || route.settings.name == 'HomePage'
               // );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.star_outlined),
+            title: Text('Favorite Books'),
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const FavoriteBooksPage(),
+                      settings: RouteSettings(name: 'FavoriteBooksPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(

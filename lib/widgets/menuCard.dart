@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
@@ -45,6 +46,9 @@ class MenuCard extends StatelessWidget {
           } else if (item.name == "Search") {
             Navigator.push(context, 
             MaterialPageRoute(builder: ((context) => const SearchPage())));
+          } else if (item.name == "Favorite Books") {
+            Navigator.push(context,
+                MaterialPageRoute(builder: ((context) => const FavoriteBooksPage())));
           } else if (item.name == "Logout") {
             final response = await request.logout(
             // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
