@@ -5,19 +5,21 @@ import 'package:sobaca_mobile/widgets/menuCard.dart';
 class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
   final List<MenuItem> items = [
-    MenuItem("Book Catalogs", Icons.library_books_outlined, [Colors.green, Colors.greenAccent]),
-    MenuItem("Discussions", Icons.question_answer_outlined, [Colors.green, Colors.greenAccent]),
-    MenuItem("Challenges", Icons.emoji_events_outlined, [Colors.green, Colors.greenAccent]),
-    MenuItem("Search", Icons.manage_search_outlined, [Colors.green, Colors.greenAccent]),
-    MenuItem("Logout", Icons.logout_outlined, [Colors.green, Colors.greenAccent]),
+    MenuItem("Book Catalogs", Icons.library_books_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Discussions", Icons.question_answer_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Challenges", Icons.emoji_events_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Search", Icons.manage_search_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Logout", Icons.logout_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Center(
+          child : Text(
           'Sobaca Menu\'s',
+          )
         ),
       ),
       drawer: LeftDrawer(),

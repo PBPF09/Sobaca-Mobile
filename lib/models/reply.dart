@@ -1,3 +1,7 @@
+// To parse this JSON data, do
+//
+//     final reply = replyFromJson(jsonString);
+
 import 'dart:convert';
 
 List<Reply> replyFromJson(String str) => List<Reply>.from(json.decode(str).map((x) => Reply.fromJson(x)));
@@ -5,64 +9,68 @@ List<Reply> replyFromJson(String str) => List<Reply>.from(json.decode(str).map((
 String replyToJson(List<Reply> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Reply {
-    Model model;
-    int pk;
-    Fields fields;
+    int id;
+    String content;
+    String user;
+    DateTime dateCreate;
+    bool isAuthor;
+    ThreadDetail thread;
 
     Reply({
-        required this.model,
-        required this.pk,
-        required this.fields,
+        required this.id,
+        required this.content,
+        required this.user,
+        required this.dateCreate,
+        required this.isAuthor,
+        required this.thread,
     });
 
     factory Reply.fromJson(Map<String, dynamic> json) => Reply(
-        model: modelValues.map[json["model"]]!,
-        pk: json["pk"],
-        fields: Fields.fromJson(json["fields"]),
+        id: json["id"],
+        content: json["content"],
+        user: json["user"],
+        dateCreate: DateTime.parse(json["date_create"]),
+        isAuthor: json["is_author"],
+        thread: ThreadDetail.fromJson(json["thread"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "model": modelValues.reverse[model],
-        "pk": pk,
-        "fields": fields.toJson(),
+        "id": id,
+        "content": content,
+        "user": user,
+        "date_create": dateCreate.toIso8601String(),
+        "is_author": isAuthor,
+        "thread": thread.toJson(),
     };
 }
 
-class Fields {
-    int thread;
-    int user;
+class ThreadDetail {
+    String title;
     String content;
+    String user;
     DateTime dateCreate;
 
-    Fields({
-        required this.thread,
-        required this.user,
+    ThreadDetail({
+        required this.title,
         required this.content,
+        required this.user,
         required this.dateCreate,
     });
 
-    factory Fields.fromJson(Map<String, dynamic> json) => Fields(
-        thread: json["thread"],
-        user: json["user"],
+    factory ThreadDetail.fromJson(Map<String, dynamic> json) => ThreadDetail(
+        title: json["title"],
         content: json["content"],
+        user: json["user"],
         dateCreate: DateTime.parse(json["date_create"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "thread": thread,
-        "user": user,
+        "title": title,
         "content": content,
+        "user": user,
         "date_create": dateCreate.toIso8601String(),
     };
 }
-
-enum Model {
-    DISCUSSION_DISCUSSIONREPLY
-}
-
-final modelValues = EnumValues({
-    "discussion.discussionreply": Model.DISCUSSION_DISCUSSIONREPLY
-});
 
 class EnumValues<T> {
     Map<String, T> map;
