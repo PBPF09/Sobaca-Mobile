@@ -36,7 +36,9 @@ class _ForumPageState extends State<ForumPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Book Discussion"),
+        title: const Text("Sobaca Forum"),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       drawer: LeftDrawer(),
       body: FutureBuilder(
@@ -86,7 +88,10 @@ class _ForumPageState extends State<ForumPage> {
                       ),
                       title: Text(
                         thread.title,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
+                          fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Color(0xff00a18c),
                         ),
@@ -94,9 +99,22 @@ class _ForumPageState extends State<ForumPage> {
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text('${thread.title}'),
-                          Text('${thread.content}'),
-                          Text('${thread.user}'),
+                          Text(
+                            'Created By ${thread.user}',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal
+                            ),  
+                          ),
+                          Text(
+                            '${thread.content}',
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
                         ],
                       ),
                       trailing: Icon(Icons.arrow_forward_ios),

@@ -23,7 +23,13 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.thread.title),
+        title: Text("Sobaca Forum"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_outlined),
+          onPressed: () => Navigator.pop(context),
+        ),
+        backgroundColor: Color(0xff8dc26f),
+        foregroundColor: Colors.white,
       ),
       body: FutureBuilder(
         future: fetchReply(context, widget.thread),
@@ -103,6 +109,8 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
+                              overflow: TextOverflow.ellipsis,
+                              
                             ),
                             SizedBox(height: 8),
                           ],
@@ -111,18 +119,26 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                       SizedBox(height: 16),
                       Divider(),
                       SizedBox(height: 16),
-                      // Displaying replies
                       for (var reply in replies)
                         ListTile(
                           leading: CircleAvatar(
                             child: Icon(Icons.person),
                           ),
-                          title: Text(reply.content),
+                          title: Text(
+                              reply.content,
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          ),
                           subtitle: Text(
-                              'Created by ${reply.user} - ${formatDate(reply.dateCreate)}'),
+                              'Created by ${reply.user} - ${formatDate(reply.dateCreate)}',
+                              style: TextStyle(
+                                fontSize: 10,
+                                fontWeight: FontWeight.normal,
+                              ),
+                          ),
                         ),
-                      SizedBox(height: 16),
-                      Divider(),
                     ],
                   ),
                 ),
@@ -145,11 +161,12 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                         onPressed: () async {
                           if (_replyController.text.isNotEmpty) {
                             final request =
-                                context.read<CookieRequest>(); // menggunakan context.read
+                                context.read<CookieRequest>();
+
                             final response = await request.postJson(
                               'http://localhost:8000/discussion/add-reply-mobile/',
                               jsonEncode(<String, dynamic>{
-                                'content': _replyController.text,
+                                'content': _replyController.text.trim(),
                                 'threadId': widget.thread.id.toString(),
                               }),
                             );
@@ -165,7 +182,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 _replyController.clear();
                               });
 
-                              // Fetch and update replies
                               List<Reply> updatedReplies =
                                   await fetchReply(context, widget.thread);
                               setState(() {
@@ -179,8 +195,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 ),
                               );
                             }
-
-                            // Clear the text field
                             setState(() {
                               _replyController.clear();
                             });

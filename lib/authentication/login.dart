@@ -3,6 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
+import 'package:sobaca_mobile/widgets/leftDrawer.dart';
+
+void main() {
+    runApp(const LoginApp());
+}
+
+class LoginApp extends StatelessWidget {
+const LoginApp({super.key});
+
+@override
+Widget build(BuildContext context) {
+    return MaterialApp(
+        title: 'Login',
+        theme: ThemeData(
+            primarySwatch: Colors.blue,
+    ),
+    home: const LoginPage(),
+    );
+    }
+}
 
 class LoginPage extends StatefulWidget {
     const LoginPage({super.key});
@@ -20,7 +41,9 @@ class _LoginPageState extends State<LoginPage> {
         final request = context.watch<CookieRequest>();
         return Scaffold(
             appBar: AppBar(
-                title: const Text('Login'),
+                title: const Text(''),
+                backgroundColor: Color(0xff8dc26f),
+                foregroundColor: Colors.white,
             ),
             body: Container(
                 padding: const EdgeInsets.all(16.0),
@@ -71,6 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                                         ..hideCurrentSnackBar()
                                         ..showSnackBar(
                                             SnackBar(content: Text("$message Selamat datang, $uname.")));
+                                    context.read<UserProvider>().setLoggedInUserName(uname);
                                     } else {
                                     showDialog(
                                         context: context,
