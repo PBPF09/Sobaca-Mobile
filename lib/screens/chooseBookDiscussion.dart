@@ -16,7 +16,7 @@ class ChooseBookDiscussionPage extends StatefulWidget {
 
 class _ChooseBookDiscussionPageState extends State<ChooseBookDiscussionPage> {
   Future<List<Book>> fetchBooks() async {
-    final url = Uri.parse('http://localhost:8000/discussion/get-book');
+    final url = Uri.parse('https://tajri.raisyam.my.id/discussion/get-book');
 
     final response = await http.get(
       url,

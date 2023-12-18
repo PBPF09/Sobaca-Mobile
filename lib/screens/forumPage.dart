@@ -18,7 +18,7 @@ class _ForumPageState extends State<ForumPage> {
     final request = context.watch<CookieRequest>();
 
     var response =
-        await request.get('http://localhost:8000/discussion/show-thread-mobile');
+        await request.get('https://tajri.raisyam.my.id/discussion/show-thread-mobile');
 
     var data = response;
 
