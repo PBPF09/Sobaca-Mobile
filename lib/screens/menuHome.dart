@@ -9,6 +9,7 @@ class MyHomePage extends StatelessWidget {
     MenuItem("Discussions", Icons.question_answer_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Literacy Objectives", Icons.emoji_events_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Search", Icons.manage_search_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
+    MenuItem("Favorite Books", Icons.star_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
     MenuItem("Logout", Icons.logout_outlined, [Color(0xff76b852), Color(0xff8dc26f)]),
   ];
 
