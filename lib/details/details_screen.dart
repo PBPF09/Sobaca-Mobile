@@ -4,8 +4,16 @@ import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 class DetailBuku extends StatelessWidget {
   const DetailBuku({Key? key}) : super(key: key);
 
+  String get judulBuku =>
+      'Under the Black Flag: The Romance and the Reality of Life Among the Pirates';
   String get deskripsiBuku =>
       "This is the most authoritative and highly literate account of these pernicious people that I have ever read.”—Patrick O'Brian “[A] wonderfully entertaining history of pirates and piracy . . . a rip-roaring read . . . fascinating and unexpected.”—Men's Journal This rollicking account of the golden age of piracy is packed with vivid history and high seas adventure. David Cordingly, an acclaimed expert on pirates, reveals the spellbinding truth behind the legends of Blackbeard, Captain Kidd, Sir Francis Drake, the fierce female brigands Mary Read and Anne Bonny, and others who rode and robbed upon the world's most dangerous waters. Here, in thrilling detail, are the weapons they used, the ships they sailed, and the ways they fought—and were defeated. Under the Black Flag also charts the paths of fictional pirates such as Captain Hook and Long John Silver. The definitive resource on the subject, this book is as captivating as it is supremely entertaining. Praise for Under the Black Flag “[A] lively history . . . If you've ever been seduced by the myth of the cutlass-wielding pirate, consider David Cordingly's Under the Black Flag.”—USA Today, “Best Bets” “Engagingly told . . . a tale of the power of imaginative literature to re-create the past.”—Los Angeles Times “Entirely engaging and informative . . . a witty and spirited book.”—The Washington Post Book World “Plenty of thrills and adventure to satisfy any reader.”—The Philadelphia Inquirer";
+  String get urlCover =>
+      'http://books.google.com/books/content?id=fnoi6SM1u5cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api';
+  String get tahunTerbit => '1996';
+  String get penerbit => 'Random House';
+  String get isbn => '0679425608';
+  String get penulisBuku => 'David Cordingly';
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +50,7 @@ class DetailBuku extends StatelessWidget {
             borderRadius: BorderRadius.circular(15),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: Image.network(
-                      'http://books.google.com/books/content?id=fnoi6SM1u5cC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api')
-                  .image,
+              image: Image.network(urlCover).image,
             ),
           ));
     }
@@ -165,39 +171,42 @@ class DetailBuku extends StatelessWidget {
         decoration: const BoxDecoration(
             color: Color(0xFFECF2F2),
             borderRadius: BorderRadius.all(Radius.circular(9))),
-        child: const Row(
+        child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
-                Text('Tahun Terbit',
+                const Text('Tahun Terbit',
                     style:
                         TextStyle(fontSize: 10, fontWeight: FontWeight.normal)),
-                SizedBox(height: 2),
-                Text('1996',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
+                const SizedBox(height: 2),
+                Text(tahunTerbit,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.bold))
               ],
             ),
-            VerticalDivider(color: Colors.black, thickness: 1),
+            const VerticalDivider(color: Colors.black, thickness: 1),
             Column(
               children: [
-                Text('Penerbit',
+                const Text('Penerbit',
                     style:
                         TextStyle(fontSize: 10, fontWeight: FontWeight.normal)),
-                SizedBox(height: 2),
-                Text('Random House',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
+                const SizedBox(height: 2),
+                Text(penerbit,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.bold))
               ],
             ),
-            VerticalDivider(color: Colors.black, thickness: 1),
+            const VerticalDivider(color: Colors.black, thickness: 1),
             Column(
               children: [
-                Text('ISBN',
+                const Text('ISBN',
                     style:
                         TextStyle(fontSize: 10, fontWeight: FontWeight.normal)),
-                SizedBox(height: 2),
-                Text('0679425608',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold))
+                const SizedBox(height: 2),
+                Text(isbn,
+                    style: const TextStyle(
+                        fontSize: 12, fontWeight: FontWeight.bold))
               ],
             ),
           ],
@@ -278,20 +287,20 @@ class DetailBuku extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 40),
-            const Row(
+            Row(
               children: [
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Under the Black Flag: The Romance and the Reality of Life Among the Pirates',
-                        style: TextStyle(
+                        judulBuku,
+                        style: const TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Text('David Cordingly',
-                          style: TextStyle(
+                      Text(penulisBuku,
+                          style: const TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.normal,
                               color: Color(0xFF327957)))
