@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
-import 'package:sobaca_mobile/screens/forumPage.dart';
+import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';

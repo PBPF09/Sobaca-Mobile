@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> fetchBooksByGenre(String genre) async {
     try {
-      var url = Uri.parse('http://localhost:8000/api/books/genres/$genre');
+      var url = Uri.parse('https://tajri.raisyam.my.id/api/books/genres/$genre');
       var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
@@ -63,7 +63,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> fetchBooksByTyping(String typing) async {
     try {
-      var url = Uri.parse('http://localhost:8000/api/books/$typing');
+      var url = Uri.parse('https://tajri.raisyam.my.id/api/books/$typing');
       var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},
@@ -87,7 +87,7 @@ class _SearchPageState extends State<SearchPage> {
   Future<void> fetchBooksByOrder(String order) async {
     try {
       var url =
-          Uri.parse('http://localhost:8000/api/books/order-by/$order/');
+          Uri.parse('https://tajri.raisyam.my.id/api/books/order-by/$order/');
       var response = await http.get(
         url,
         headers: {
