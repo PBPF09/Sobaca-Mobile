@@ -4,7 +4,6 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
-import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
 void main() {
     runApp(const LoginApp());

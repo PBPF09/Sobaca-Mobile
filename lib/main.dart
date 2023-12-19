@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import "package:provider/provider.dart";
-import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 
 void main() {

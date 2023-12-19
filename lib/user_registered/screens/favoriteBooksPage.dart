@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 import 'package:sobaca_mobile/user_registered/models/favorite.dart';
 
@@ -17,7 +15,7 @@ class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
   Future<List<Favorite>> fetchFavorite() async {
     final request = context.watch<CookieRequest>();
     var response =
-        await request.get('http://localhost:8000/user_registered/get_favorite');
+        await request.get('https://tajri.raisyam.my.id/user_registered/get_favorite');
 
     var data = response;
     List<Favorite> listFavorite = [];
@@ -74,7 +72,7 @@ class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
                       icon: Icon(Icons.delete),
                       onPressed: () async {
                         var response = await request.post(
-                            "http://localhost:8000/user_registered/delete_favorite_flutter/${snapshot.data![index].pk}",
+                            "https://tajri.raisyam.my.id/user_registered/delete_favorite_flutter/${snapshot.data![index].pk}",
                             {});
                         setState(() {});
                       },

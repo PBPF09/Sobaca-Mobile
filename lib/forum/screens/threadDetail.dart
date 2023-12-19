@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:sobaca_mobile/models/thread.dart';
-import 'package:sobaca_mobile/models/reply.dart';
+import 'package:sobaca_mobile/forum/models/thread.dart';
+import 'package:sobaca_mobile/forum/models/reply.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
