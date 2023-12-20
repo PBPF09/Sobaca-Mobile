@@ -43,92 +43,137 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard Profile'),
-      ),
-      drawer: LeftDrawer(),
-      body: FutureBuilder(
-        future: fetchProfile(),
-        builder: (context, AsyncSnapshot snapshot) {
-          if (snapshot.data == null) {
-            return const Center(child: CircularProgressIndicator());
-          } else {
-            if (!snapshot.hasData) {
-              return const Column(
-                children: [
-                  Text(
-                    "Tidak ada",
-                    style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-                  ),
-                  SizedBox(height: 8),
-                ],
-              );
-            } else {
-              final profile = snapshot.data![0].fields;
-
-              return Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(16.0),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 8.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          'Dashboard Profile',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24.0,
+        appBar: AppBar(
+          title: const Text('Dashboard Profile'),
+        ),
+        drawer: LeftDrawer(),
+        body: FutureBuilder(
+            future: fetchProfile(),
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.data == null) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (!snapshot.hasData || snapshot.data.isEmpty) {
+                return Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Dashboard Profile',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24.0,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          'Username: ${context.watch<UserProvider>().loggedInUserName}',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          'Nama: ${profile.name}',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          'Kota: ${profile.city}',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          'Genre Favorit: ${profile.favGenre}',
-                          style: TextStyle(fontSize: 16.0),
-                        ),
-                        ElevatedButton(
-                          onPressed: () async {
-                            await showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return EditProfileModal();
-                              },
-                            );
-                            setState(() {});
-                          },
-                          child: Text('Edit Profile'),
-                        ),
-                      ],
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Username: ${context.watch<UserProvider>().loggedInUserName}',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Nama: ',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Kota: ',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Genre Favorit: ',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          ElevatedButton(
+                            onPressed: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return EditProfileModal();
+                                },
+                              );
+                              setState(() {});
+                            },
+                            child: Text('Edit Profile'),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              );
-            }
-          }
-        },
-      ),
-    );
+                );
+              } else {
+                final profile = snapshot.data![0].fields;
+
+                return Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(16.0),
+                  child: Card(
+                    color: Colors.white,
+                    elevation: 8.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Dashboard Profile',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24.0,
+                            ),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Username: ${context.watch<UserProvider>().loggedInUserName}',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Nama: ${profile.name}',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Kota: ${profile.city}',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            'Genre Favorit: ${profile.favGenre}',
+                            style: TextStyle(fontSize: 16.0),
+                          ),
+                          ElevatedButton(
+                            onPressed: () async {
+                              await showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return EditProfileModal();
+                                },
+                              );
+                              setState(() {});
+                            },
+                            child: Text('Edit Profile'),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
+            }));
   }
 }
 

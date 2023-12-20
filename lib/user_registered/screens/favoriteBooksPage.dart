@@ -44,14 +44,11 @@ class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
             return const Center(child: CircularProgressIndicator());
           } else {
             if (!snapshot.hasData || snapshot.data.isEmpty) {
-              return const Column(
-                children: [
-                  Text(
-                    "Belum ada buku yang ditambahkan di favorit.",
-                    style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-                  ),
-                  SizedBox(height: 8),
-                ],
+              return const Center(
+                child: Text(
+                  "Belum ada buku yang ditambahkan di favorit.",
+                  style: TextStyle(color: Color(0xff00a18c), fontSize: 20),
+                ),
               );
             } else {
               return ListView.builder(
