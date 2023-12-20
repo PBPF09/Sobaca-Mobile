@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/details/details_screen.dart';
 import 'package:sobaca_mobile/models/books.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -114,7 +115,8 @@ class _SearchPageState extends State<SearchPage> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text('Access Denied'),
-          content: Text('Permintaan Anda saat ini tidak dapat diproses. Silakan login terlebih dahulu.'),
+          content: Text(
+              'Permintaan Anda saat ini tidak dapat diproses. Silakan login terlebih dahulu.'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -158,8 +160,8 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-  final request = context.watch<CookieRequest>();
-  // print("${request.loggedIn} ini login atau tidak");
+    final request = context.watch<CookieRequest>();
+    // print("${request.loggedIn} ini login atau tidak");
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -187,7 +189,6 @@ class _SearchPageState extends State<SearchPage> {
                     boldTextIndex = 0;
                   });
                   fetchBooksByTyping(input);
-
                 } else {
                   showAccessDeniedDialog(context);
                 }
@@ -205,13 +206,12 @@ class _SearchPageState extends State<SearchPage> {
                     .map(
                       (entry) => InkWell(
                         onTap: () {
-                          if (request.loggedIn){
+                          if (request.loggedIn) {
                             setState(() {
                               boldTextIndex = entry.key;
                               _input.clear();
                             });
                             fetchBooksByGenre(entry.value);
-
                           } else {
                             showAccessDeniedDialog(context);
                           }
@@ -237,7 +237,7 @@ class _SearchPageState extends State<SearchPage> {
             ),
             ElevatedButton(
               onPressed: () {
-                if (request.loggedIn){
+                if (request.loggedIn) {
                   if (isAscending) {
                     // fetchBooksByAscending();
                     fetchBooksByOrder("ascending");
@@ -249,7 +249,6 @@ class _SearchPageState extends State<SearchPage> {
                     isAscending = !isAscending;
                     boldTextIndex = 0;
                   });
-
                 } else {
                   showAccessDeniedDialog(context);
                 }
@@ -286,7 +285,11 @@ class _SearchPageState extends State<SearchPage> {
                         width: 160, // Adjust the fixed width as needed
                         child: InkWell(
                           onTap: () {
-                            // Navigator.push(context, MaterialPageRoute(builder: (context) => const ShowBook(_result[currentIndex].pk)));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        DetailBuku(_result[currentIndex])));
                           },
                           child: Container(
                             width: 147,
@@ -366,12 +369,11 @@ class _SearchPageState extends State<SearchPage> {
           foregroundColor: const Color(0xFFFFFFFF),
           mini: true,
           onPressed: () {
-            if (request.loggedIn){
+            if (request.loggedIn) {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const RequestBookPage()));
-
             } else {
               showAccessDeniedDialog(context);
             }

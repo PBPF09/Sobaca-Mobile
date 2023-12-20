@@ -132,21 +132,25 @@ class _RequestBookPageState extends State<RequestBookPage> {
                         );
 
                         if (response['status'] == 'success') {
-                          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
                             content: Text("Request buku berhasil disimpan!"),
                           ));
                           Navigator.pop(context);
                         } else {
                           // Handle kesalahan lainnya jika respons tidak sesuai dengan format yang diharapkan
-                          ScaffoldMessenger.of(context).showSnackBar( SnackBar(
-                            content: Text("Terdapat kesalahan: ${response['message']}"),
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text(
+                                "Terdapat kesalahan: ${response['message']}"),
                           ));
                         }
                       } catch (error) {
                         // Handle kesalahan umum atau respons yang tidak sesuai dengan format JSON
                         print("Error: $error");
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text("Terdapat kesalahan, silakan coba lagi."),
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content:
+                              Text("Terdapat kesalahan, silakan coba lagi."),
                         ));
                       }
                     }

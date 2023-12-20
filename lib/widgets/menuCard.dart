@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
+import 'package:sobaca_mobile/screens/catalogs.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
@@ -37,7 +38,7 @@ class MenuCard extends StatelessWidget {
         onTap: () async {
           if (item.name == "Book Catalogs") {
             Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const DeskripsiBuku())));
+              MaterialPageRoute(builder: ((context) => const CatalogPage())));
           } else if (item.name == "Discussions") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ForumPage()));
