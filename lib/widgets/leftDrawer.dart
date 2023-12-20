@@ -6,6 +6,7 @@ import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
+import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -74,14 +75,14 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.library_books_outlined),
             title: Text('Book Catalogs'),
             onTap: () {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const CatalogPage(),
-              //         settings: RouteSettings(name: 'CatalogPage')),
-              //     (route) =>
-              //         route.isFirst || route.settings.name == 'HomePage'
-              // );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DeskripsiBuku(),
+                      settings: RouteSettings(name: 'CatalogPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(
