@@ -6,6 +6,7 @@ import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 
 
 class MenuItem {
@@ -35,8 +36,8 @@ class MenuCard extends StatelessWidget {
       child: InkWell(
         onTap: () async {
           if (item.name == "Book Catalogs") {
-            // Navigator.push(context,
-            //   MaterialPageRoute(builder: ((context) => const CatalogPage())));
+            Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => const DeskripsiBuku())));
           } else if (item.name == "Discussions") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ForumPage()));
