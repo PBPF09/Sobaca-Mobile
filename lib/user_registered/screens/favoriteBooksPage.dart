@@ -68,7 +68,7 @@ class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
                     trailing: IconButton(
                       icon: Icon(Icons.delete),
                       onPressed: () async {
-                        var response = await request.post(
+                        await request.post(
                             "https://tajri.raisyam.my.id/user_registered/delete_favorite_flutter/${snapshot.data![index].pk}",
                             {});
                         setState(() {});

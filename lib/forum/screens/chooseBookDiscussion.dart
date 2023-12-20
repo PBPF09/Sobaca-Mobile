@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:sobaca_mobile/forum/screens/createForum.dart';
-import 'package:sobaca_mobile/models/books.dart';
+import 'package:sobaca_mobile/book_details/models/books.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
 class ChooseBookDiscussionPage extends StatefulWidget {

@@ -3,13 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:sobaca_mobile/details/details_screen.dart';
-import 'package:sobaca_mobile/models/books.dart';
+import 'package:sobaca_mobile/book_details/screens/details_screen.dart';
+import 'package:sobaca_mobile/book_details/models/books.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:sobaca_mobile/screens/request_book_page.dart';
+import 'package:sobaca_mobile/search/request_book_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
