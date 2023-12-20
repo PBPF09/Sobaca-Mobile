@@ -4,9 +4,10 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/screens/catalogs.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
-import 'package:sobaca_mobile/screens/forumPage.dart';
+import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 
 
 class MenuItem {
@@ -52,8 +53,7 @@ class MenuCard extends StatelessWidget {
                 MaterialPageRoute(builder: ((context) => const FavoriteBooksPage())));
           } else if (item.name == "Logout") {
             final response = await request.logout(
-            // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-            "http://127.0.0.1:8000/auth/logout/");
+            "https://tajri.raisyam.my.id/auth/logout/");
             String message = response["message"];
             if (response['status']) {
               String uname = response["username"];

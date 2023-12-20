@@ -118,7 +118,7 @@ class _RequestBookPageState extends State<RequestBookPage> {
                   style: ElevatedButton.styleFrom(
                       fixedSize: const Size(125, 50),
                       backgroundColor: const Color(0xFF327957),
-                      foregroundColor: Colors.white),
+                      foregroundColor: const Color.fromARGB(255, 172, 115, 115)),
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       try {

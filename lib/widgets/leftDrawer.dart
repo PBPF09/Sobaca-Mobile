@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
+import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/catalogs.dart';
-import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
+import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 import 'package:sobaca_mobile/screens/bookshelf.dart';
 
 class LeftDrawer extends StatelessWidget {
@@ -40,7 +41,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Inspirasi Literasi',
+                  'Sobat Membaca Inspire your Literacy',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,

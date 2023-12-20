@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 import 'package:sobaca_mobile/user_registered/models/favorite.dart';
 
@@ -16,8 +14,8 @@ class FavoriteBooksPage extends StatefulWidget {
 class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
   Future<List<Favorite>> fetchFavorite() async {
     final request = context.watch<CookieRequest>();
-    var response = await request
-        .get('https://tajri.raisyam.my.id/user_registered/get_favorite');
+    var response =
+        await request.get('https://tajri.raisyam.my.id/user_registered/get_favorite');
 
     var data = response;
     List<Favorite> listFavorite = [];

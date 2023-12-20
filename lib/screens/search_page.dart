@@ -41,8 +41,7 @@ class _SearchPageState extends State<SearchPage> {
 
   Future<void> fetchBooksByGenre(String genre) async {
     try {
-      var url =
-          Uri.parse('https://tajri.raisyam.my.id/api/books/genres/$genre');
+      var url = Uri.parse('https://tajri.raisyam.my.id/api/books/genres/$genre');
       var response = await http.get(
         url,
         headers: {"Content-Type": "application/json"},

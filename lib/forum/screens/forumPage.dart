@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sobaca_mobile/models/thread.dart';
-import 'package:sobaca_mobile/screens/chooseBookDiscussion.dart';
-import 'package:sobaca_mobile/screens/threadDetail.dart';
+import 'package:sobaca_mobile/forum/models/thread.dart';
+import 'package:sobaca_mobile/forum/screens/chooseBookDiscussion.dart';
+import 'package:sobaca_mobile/forum/screens/threadDetail.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
@@ -17,8 +17,8 @@ class _ForumPageState extends State<ForumPage> {
   Future<List<Thread>> fetchThread() async {
     final request = context.watch<CookieRequest>();
 
-    var response = await request
-        .get('https://tajri.raisyam.my.id/discussion/show-thread-mobile');
+    var response =
+        await request.get('https://tajri.raisyam.my.id/discussion/show-thread-mobile');
 
     var data = response;
 
@@ -102,7 +102,9 @@ class _ForumPageState extends State<ForumPage> {
                           Text(
                             'Created By ${thread.user}',
                             style: TextStyle(
-                                fontSize: 10, fontWeight: FontWeight.normal),
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal
+                            ),  
                           ),
                           Text(
                             '${thread.content}',
@@ -117,8 +119,7 @@ class _ForumPageState extends State<ForumPage> {
                       ),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: () {
-                        Navigator.push(
-                          context,
+                        Navigator.push(context,
                           MaterialPageRoute(
                             builder: (context) =>
                                 ThreadDetailPage(thread: thread),
