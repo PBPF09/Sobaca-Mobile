@@ -1,4 +1,4 @@
-
+[![Build status](https://build.appcenter.ms/v0.1/apps/6f9b9090-eadb-4464-a144-3aeed2bfb785/branches/master/badge)](https://appcenter.ms)
 # **SOBACA Mobile (Sobat Membaca Mobile)**
 [Klik Disini untuk melihat Sobaca Mobile](https://)
 
