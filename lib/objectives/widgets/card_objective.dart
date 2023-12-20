@@ -93,7 +93,7 @@ class ObjectiveCard extends StatelessWidget {
                               onPressed: () async {
                                 if (!objective.fields.isCompleted) {
                                   await request.postJson(
-                                      'http://127.0.0.1:8000/challenges/complete_objective_mobile/',
+                                      'https://tajri.raisyam.my.id/challenges/complete_objective_mobile/',
                                       jsonEncode({
                                         "id": objective.pk.toString(),
                                       }));
@@ -180,7 +180,7 @@ class ObjectiveCard extends StatelessWidget {
                   child: ElevatedButton(
                       onPressed: () async {
                         await request.postJson(
-                            'http://127.0.0.1:8000/challenges/delete_objective_mobile/',
+                            'https://tajri.raisyam.my.id/challenges/delete_objective_mobile/',
                             jsonEncode({
                               "id": objective.pk.toString(),
                             }));

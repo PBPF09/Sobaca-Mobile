@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:sobaca_mobile/user_registered/models/profile.dart';
 
@@ -27,7 +26,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Future<List<Profile>> fetchProfile() async {
     final request = context.watch<CookieRequest>();
     var response =
-        await request.get('http://localhost:8000/user_registered/get_profile/');
+        await request.get('https://tajri.raisyam.my.id/user_registered/get_profile/');
 
     var data = response;
     List<Profile> listProfile = [];
@@ -235,7 +234,7 @@ class _EditProfileModalState extends State<EditProfileModal> {
 
                       // Send data to Django
                       final response = await request.post(
-                          'http://localhost:8000/user_registered/edit_profile_flutter/',
+                          'https://tajri.raisyam.my.id/user_registered/edit_profile_flutter/',
                           jsonEncode(
                             <String, String>{
                               'name': _nameController.text,

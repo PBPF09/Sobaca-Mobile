@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:sobaca_mobile/screens/createForum.dart';
+import 'package:sobaca_mobile/forum/screens/createForum.dart';
 import 'package:sobaca_mobile/models/books.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
 
@@ -16,7 +16,7 @@ class ChooseBookDiscussionPage extends StatefulWidget {
 
 class _ChooseBookDiscussionPageState extends State<ChooseBookDiscussionPage> {
   Future<List<Book>> fetchBooks() async {
-    final url = Uri.parse('http://localhost:8000/discussion/get-book');
+    final url = Uri.parse('https://tajri.raisyam.my.id/discussion/get-book');
 
     final response = await http.get(
       url,

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
-import 'package:sobaca_mobile/screens/forumPage.dart';
+import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
+import 'package:sobaca_mobile/details/deskripsi_screen.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -38,7 +39,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Inspirasi Literasi',
+                  'Sobat Membaca Inspire your Literacy',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
@@ -74,14 +75,14 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.library_books_outlined),
             title: Text('Book Catalogs'),
             onTap: () {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const CatalogPage(),
-              //         settings: RouteSettings(name: 'CatalogPage')),
-              //     (route) =>
-              //         route.isFirst || route.settings.name == 'HomePage'
-              // );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const DeskripsiBuku(),
+                      settings: RouteSettings(name: 'CatalogPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage'
+              );
             },
           ),
           ListTile(

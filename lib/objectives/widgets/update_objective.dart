@@ -119,7 +119,7 @@ class _UpdateObjectiveModalState extends State<UpdateObjectiveModal> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           await request.postJson(
-                              'http://127.0.0.1:8000/challenges/edit_objective_mobile/',
+                              'https://tajri.raisyam.my.id/challenges/edit_objective_mobile/',
                               jsonEncode({
                                 "id": widget.objective.pk.toString(),
                                 "title": _titleController.text,

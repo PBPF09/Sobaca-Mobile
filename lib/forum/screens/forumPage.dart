@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sobaca_mobile/models/thread.dart';
-import 'package:sobaca_mobile/screens/chooseBookDiscussion.dart';
-import 'package:sobaca_mobile/screens/threadDetail.dart';
+import 'package:sobaca_mobile/forum/models/thread.dart';
+import 'package:sobaca_mobile/forum/screens/chooseBookDiscussion.dart';
+import 'package:sobaca_mobile/forum/screens/threadDetail.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/widgets/leftDrawer.dart';
@@ -18,7 +18,7 @@ class _ForumPageState extends State<ForumPage> {
     final request = context.watch<CookieRequest>();
 
     var response =
-        await request.get('http://localhost:8000/discussion/show-thread-mobile');
+        await request.get('https://tajri.raisyam.my.id/discussion/show-thread-mobile');
 
     var data = response;
 

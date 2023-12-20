@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:sobaca_mobile/models/thread.dart';
-import 'package:sobaca_mobile/models/reply.dart';
+import 'package:sobaca_mobile/forum/models/thread.dart';
+import 'package:sobaca_mobile/forum/models/reply.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -164,7 +164,7 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 context.read<CookieRequest>();
 
                             final response = await request.postJson(
-                              'http://localhost:8000/discussion/add-reply-mobile/',
+                              'https://tajri.raisyam.my.id/discussion/add-reply-mobile/',
                               jsonEncode(<String, dynamic>{
                                 'content': _replyController.text.trim(),
                                 'threadId': widget.thread.id.toString(),
@@ -224,7 +224,7 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
     final request = context.watch<CookieRequest>();
     var threadId = thread.id;
     var response = await request
-        .get('http://localhost:8000/discussion/show-reply-mobile/$threadId');
+        .get('https://tajri.raisyam.my.id/discussion/show-reply-mobile/$threadId');
 
     var data = response;
 
