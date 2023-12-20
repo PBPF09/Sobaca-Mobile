@@ -3,7 +3,7 @@ import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:sobaca_mobile/authentication/register.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
-import 'package:sobaca_mobile/screens/search_page.dart';
+import 'package:sobaca_mobile/search/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 
 void main() {

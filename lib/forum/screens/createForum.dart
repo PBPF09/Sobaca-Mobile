@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:sobaca_mobile/models/books.dart';
+import 'package:sobaca_mobile/book_details/models/books.dart';
 import 'package:sobaca_mobile/forum/screens/forumPage.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';

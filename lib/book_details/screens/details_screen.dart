@@ -1,11 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:sobaca_mobile/details/add_review.dart';
-import 'package:sobaca_mobile/details/all_reviews.dart';
-import 'package:sobaca_mobile/details/deskripsi_screen.dart';
-import 'package:sobaca_mobile/models/books.dart';
-import 'package:sobaca_mobile/models/reviews.dart';
-import 'package:http/http.dart' as http;
+import 'package:sobaca_mobile/book_details/screens/add_review.dart';
+import 'package:sobaca_mobile/book_details/screens/all_reviews.dart';
+import 'package:sobaca_mobile/book_details/screens/deskripsi_screen.dart';
+import 'package:sobaca_mobile/book_details/models/books.dart';
+import 'package:sobaca_mobile/book_details/models/reviews.dart';
 import 'dart:convert';
 import 'package:provider/provider.dart';
 
@@ -176,15 +177,16 @@ class _DetailBukuState extends State<DetailBuku> {
   Widget build(BuildContext context) {
     Widget coverBuku() {
       return Container(
-          height: 250,
-          width: 150,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: Image.network(urlCover).image,
-            ),
-          ));
+        height: 250,
+        width: 150,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: Image.network(urlCover).image,
+          ),
+        ),
+      );
     }
 
     Widget footer() {
@@ -488,43 +490,61 @@ class _DetailBukuState extends State<DetailBuku> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF327957),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF327957),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  // Set a maximum width for the button
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          AllReviews(bookId: widget.book.pk),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Lihat Semua Review',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 12),
                                 ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        AllReviews(bookId: widget.book.pk),
-                                  ),
-                                );
-                              },
-                              child: const Text('Lihat Semua Review',
-                                  style: TextStyle(color: Colors.white)),
                             ),
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFF327957),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
+                            const SizedBox(
+                                width: 10), // Add spacing between buttons
+                            Expanded(
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xFF327957),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  // Set a maximum width for the button
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          AddReview(bookId: widget.book.pk),
+                                    ),
+                                  );
+                                },
+                                child: const Text(
+                                  'Tambahkan Review',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 12),
                                 ),
                               ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        AddReview(bookId: widget.book.pk),
-                                  ),
-                                );
-                              },
-                              child: const Text('Tambahkan Review',
-                                  style: TextStyle(color: Colors.white)),
                             ),
                           ],
                         ),
@@ -703,10 +723,10 @@ class _DetailBukuState extends State<DetailBuku> {
           Stack(
             children: [
               deskripsi(),
-              Column(
-                children: [
-                  coverBuku(),
-                ],
+              Positioned(
+                top: MediaQuery.of(context).size.height / 2 - 360,
+                left: MediaQuery.of(context).size.width / 2 - 75,
+                child: coverBuku(),
               ),
               favoritButton(),
             ],

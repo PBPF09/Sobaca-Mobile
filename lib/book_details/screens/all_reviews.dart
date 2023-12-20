@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:sobaca_mobile/models/reviews.dart';
+import 'package:sobaca_mobile/book_details/models/reviews.dart';
 import 'package:sobaca_mobile/user_registered/models/profile.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
 

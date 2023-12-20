@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:sobaca_mobile/models/books.dart'; // Import your book model
+import 'package:sobaca_mobile/book_details/models/books.dart'; // Import your book model
 
 class BookShelvesPage extends StatefulWidget {
   @override
