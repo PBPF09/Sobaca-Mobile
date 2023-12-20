@@ -39,7 +39,7 @@ class LeftDrawer extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Inspirasi Literasi',
+                  'Sobat Membaca Inspire your Literacy',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 12,
