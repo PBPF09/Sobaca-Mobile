@@ -103,7 +103,7 @@ class _ThreadFormPageState extends State<ThreadFormPage> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         final response = await request.postJson(
-                            'http://localhost:8000/discussion/add-thread-mobile/',
+                            'https://tajri.raisyam.my.id/discussion/add-thread-mobile/',
                             jsonEncode(<String, dynamic>{
                               'title': _title.trim(),
                               'content': _content.trim(),

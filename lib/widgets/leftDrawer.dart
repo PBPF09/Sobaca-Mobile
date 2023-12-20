@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sobaca_mobile/authentication/login.dart';
 import 'package:sobaca_mobile/objectives/screens/list_objective.dart';
+import 'package:sobaca_mobile/screens/catalogs.dart';
 import 'package:sobaca_mobile/screens/forumPage.dart';
 import 'package:sobaca_mobile/screens/menuHome.dart';
 import 'package:sobaca_mobile/screens/search_page.dart';
 import 'package:sobaca_mobile/user_registered/screens/favoriteBooksPage.dart';
 import 'package:sobaca_mobile/user_registered/screens/profilePage.dart';
+import 'package:sobaca_mobile/screens/bookshelf.dart';
 
 class LeftDrawer extends StatelessWidget {
   @override
@@ -74,14 +76,13 @@ class LeftDrawer extends StatelessWidget {
             leading: Icon(Icons.library_books_outlined),
             title: Text('Book Catalogs'),
             onTap: () {
-              // Navigator.pushAndRemoveUntil(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const CatalogPage(),
-              //         settings: RouteSettings(name: 'CatalogPage')),
-              //     (route) =>
-              //         route.isFirst || route.settings.name == 'HomePage'
-              // );
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CatalogPage(),
+                      settings: RouteSettings(name: 'CatalogPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(
@@ -120,8 +121,7 @@ class LeftDrawer extends StatelessWidget {
                       builder: (context) => const SearchPage(),
                       settings: RouteSettings(name: 'SearchPage')),
                   (route) =>
-                      route.isFirst || route.settings.name == 'HomePage'
-              );
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(
@@ -134,8 +134,21 @@ class LeftDrawer extends StatelessWidget {
                       builder: (context) => const ObjectivesPage(),
                       settings: RouteSettings(name: 'ObjectivePage')),
                   (route) =>
-                      route.isFirst || route.settings.name == 'HomePage'
-              );
+                      route.isFirst || route.settings.name == 'HomePage');
+            },
+          ),
+          // menuju bookshelf
+          ListTile(
+            leading: Icon(Icons.book_outlined),
+            title: Text('Bookshelf'),
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => BookShelvesPage(),
+                      settings: RouteSettings(name: 'BookshelvesPage')),
+                  (route) =>
+                      route.isFirst || route.settings.name == 'HomePage');
             },
           ),
           ListTile(

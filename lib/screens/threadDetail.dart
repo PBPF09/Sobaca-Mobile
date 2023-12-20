@@ -110,7 +110,6 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                                 fontWeight: FontWeight.normal,
                               ),
                               overflow: TextOverflow.ellipsis,
-                              
                             ),
                             SizedBox(height: 8),
                           ],
@@ -125,18 +124,18 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                             child: Icon(Icons.person),
                           ),
                           title: Text(
-                              reply.content,
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.normal,
-                              ),
+                            reply.content,
+                            style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                           subtitle: Text(
-                              'Created by ${reply.user} - ${formatDate(reply.dateCreate)}',
-                              style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.normal,
-                              ),
+                            'Created by ${reply.user} - ${formatDate(reply.dateCreate)}',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.normal,
+                            ),
                           ),
                         ),
                     ],
@@ -160,11 +159,10 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                       IconButton(
                         onPressed: () async {
                           if (_replyController.text.isNotEmpty) {
-                            final request =
-                                context.read<CookieRequest>();
+                            final request = context.read<CookieRequest>();
 
                             final response = await request.postJson(
-                              'http://localhost:8000/discussion/add-reply-mobile/',
+                              'https://tajri.raisyam.my.id/discussion/add-reply-mobile/',
                               jsonEncode(<String, dynamic>{
                                 'content': _replyController.text.trim(),
                                 'threadId': widget.thread.id.toString(),
@@ -174,8 +172,7 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                             if (response['status'] == 'success') {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content:
-                                      Text("Reply successfully sent!"),
+                                  content: Text("Reply successfully sent!"),
                                 ),
                               );
                               setState(() {
@@ -190,8 +187,8 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content:
-                                      Text("There was an error sending the reply."),
+                                  content: Text(
+                                      "There was an error sending the reply."),
                                 ),
                               );
                             }
@@ -223,8 +220,8 @@ class _ThreadDetailPageState extends State<ThreadDetailPage> {
   Future<List<Reply>> fetchReply(BuildContext context, Thread thread) async {
     final request = context.watch<CookieRequest>();
     var threadId = thread.id;
-    var response = await request
-        .get('http://localhost:8000/discussion/show-reply-mobile/$threadId');
+    var response = await request.get(
+        'https://tajri.raisyam.my.id/discussion/show-reply-mobile/$threadId');
 
     var data = response;
 

@@ -16,8 +16,8 @@ class FavoriteBooksPage extends StatefulWidget {
 class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
   Future<List<Favorite>> fetchFavorite() async {
     final request = context.watch<CookieRequest>();
-    var response =
-        await request.get('http://localhost:8000/user_registered/get_favorite');
+    var response = await request
+        .get('https://tajri.raisyam.my.id/user_registered/get_favorite');
 
     var data = response;
     List<Favorite> listFavorite = [];
@@ -71,7 +71,7 @@ class _FavoriteBooksPageState extends State<FavoriteBooksPage> {
                       icon: Icon(Icons.delete),
                       onPressed: () async {
                         var response = await request.post(
-                            "http://localhost:8000/user_registered/delete_favorite_flutter/${snapshot.data![index].pk}",
+                            "https://tajri.raisyam.my.id/user_registered/delete_favorite_flutter/${snapshot.data![index].pk}",
                             {});
                         setState(() {});
                       },

@@ -26,8 +26,8 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   Future<List<Profile>> fetchProfile() async {
     final request = context.watch<CookieRequest>();
-    var response =
-        await request.get('http://localhost:8000/user_registered/get_profile/');
+    var response = await request
+        .get('https://tajri.raisyam.my.id/user_registered/get_profile/');
 
     var data = response;
     List<Profile> listProfile = [];
@@ -187,7 +187,7 @@ class _EditProfileModalState extends State<EditProfileModal> {
 
                       // Send data to Django
                       final response = await request.post(
-                          'http://localhost:8000/user_registered/edit_profile_flutter/',
+                          'https://tajri.raisyam.my.id/user_registered/edit_profile_flutter/',
                           jsonEncode(
                             <String, String>{
                               'name': _nameController.text,
